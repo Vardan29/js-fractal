@@ -1,0 +1,12 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	justify-content: center;
+}
