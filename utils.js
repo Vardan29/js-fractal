@@ -44,7 +44,7 @@ const move = (env, key) => {
 
 const resetParams = (env) => {
 	env.color = {
-		r: 17,
+		r: 5,
 		g: 0,
 		b: 0
 	};
@@ -77,7 +77,7 @@ const initEnv = (env) => {
 	env.lock = -1;
 	env.r = 2;
 	env.color = {
-		r: 17,
+		r: 5,
 		g: 0,
 		b: 0
 	};
@@ -90,9 +90,9 @@ const initEnv = (env) => {
 	resetParams(env);
 };
 
-const addColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEYS[key]] + 17) % 256;
+const addColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEYS[key]] + 5) % 256;
 
-const subColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEYS[key]] - 17) < 0 ? 255 : (env.color[COLOR_KEYS[key]] - 17);
+const subColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEYS[key]] - 5) < 0 ? 255 : (env.color[COLOR_KEYS[key]] - 5);
 
 const calculateFractal = (env, isJulia) => {
 	let	z = isJulia ? mapPoint(env) : initComplex(0, 0);
