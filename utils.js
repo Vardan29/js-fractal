@@ -65,6 +65,14 @@ const changeFractal = (key, env) => {
 	resetParams(env);
 };
 
+const initComplex = (x, y) => {
+	const z = {};
+
+	z.x = x;
+	z.y = y;
+	return (z);
+};
+
 const initEnv = (env) => {
 	env.lock = -1;
 	env.r = 2;
@@ -73,6 +81,7 @@ const initEnv = (env) => {
 		g: 0,
 		b: 0
 	};
+	env.c = initComplex(0, 0);
 	env.all = [];
 	env.all[JULIA] = juliaSet;
 	env.all[MANDELBROT] = mandelbrotSet;
@@ -84,14 +93,6 @@ const initEnv = (env) => {
 const addColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEYS[key]] + 17) % 256;
 
 const subColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEYS[key]] - 17) < 0 ? 255 : (env.color[COLOR_KEYS[key]] - 17);
-
-const initComplex = (x, y) => {
-	const z = {};
-
-	z.x = x;
-	z.y = y;
-	return (z);
-};
 
 const calculateFractal = (env) => {
 	let	z = initComplex(0, 0);
