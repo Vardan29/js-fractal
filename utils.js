@@ -94,8 +94,8 @@ const addColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEY
 
 const subColor = (key, env) => env.color[COLOR_KEYS[key]] = (env.color[COLOR_KEYS[key]] - 17) < 0 ? 255 : (env.color[COLOR_KEYS[key]] - 17);
 
-const calculateFractal = (env) => {
-	let	z = initComplex(0, 0);
+const calculateFractal = (env, isJulia) => {
+	let	z = isJulia ? mapPoint(env) : initComplex(0, 0);
 
 	for (let i = 0; mod(z) <= 4 && i < ITERATIONS; ++i) {
 		z = env.all[env.fractal](z, env);
@@ -117,7 +117,7 @@ const drawFractal = (env) => {
 	env.img = ctx.getImageData(0, 0, canvas.width, canvas.height);
 	for (env.x = 0; env.x < WIN_SIZE; ++env.x) {
 		for (env.y = 0; env.y < WIN_SIZE; ++env.y) {
-			const res = calculateFractal(env);
+			const res = calculateFractal(env, env.fractal === JULIA);
 			setPixel(env, res);
 		}
 	}

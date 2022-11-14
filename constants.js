@@ -26,7 +26,7 @@ const KEY_DOWN = 'arrowdown';
 
 const WIN_SIZE = canvas.width;
 const ZOOM = 1.1;
-const ITERATIONS = 100;
+const ITERATIONS = 125;
 
 const BUFFALO = 1;
 const MANDELBROT = 2;
